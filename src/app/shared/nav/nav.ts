@@ -23,6 +23,20 @@ import { AuthService } from '../auth';
                [class]="isDark() ? 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors' : 'text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors'">
               Home
             </a>
+            <a routerLink="/" [fragment]="'skills'"
+               [class]="isDark() ? 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors' : 'text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors'">
+              Skills
+            </a>
+            <a routerLink="/" [fragment]="'projects'"
+               [class]="isDark() ? 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors' : 'text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors'">
+              Projects
+            </a>
+            @if (!auth.isAuthed()) {
+              <a routerLink="/signin"
+                 [class]="isDark() ? 'text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors' : 'text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors'">
+                Sign in
+              </a>
+            }
             @if (auth.isAuthed()) {
               <a routerLink="/admin" 
                  routerLinkActive="text-blue-600"
@@ -37,8 +51,6 @@ import { AuthService } from '../auth';
             </button>
             @if (auth.isAuthed()) {
               <button (click)="auth.signOut()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign out</button>
-            } @else {
-              <button (click)="auth.signInWithGoogle()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Sign in</button>
             }
           </div>
           
@@ -63,6 +75,20 @@ import { AuthService } from '../auth';
                [class]="isDark() ? 'text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium' : 'text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium'">
               Home
             </a>
+            <a routerLink="/" [fragment]="'skills'"
+               [class]="isDark() ? 'text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium' : 'text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium'">
+              Skills
+            </a>
+            <a routerLink="/" [fragment]="'projects'"
+               [class]="isDark() ? 'text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium' : 'text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium'">
+              Projects
+            </a>
+            @if (!auth.isAuthed()) {
+              <a routerLink="/signin"
+                 [class]="isDark() ? 'text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium' : 'text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium'">
+                Sign in
+              </a>
+            }
             @if (auth.isAuthed()) {
               <a routerLink="/admin" 
                  routerLinkActive="text-blue-600"
@@ -77,8 +103,6 @@ import { AuthService } from '../auth';
             </button>
             @if (auth.isAuthed()) {
               <button (click)="auth.signOut()" class="bg-red-600 hover:bg-red-700 text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Sign out</button>
-            } @else {
-              <button (click)="auth.signInWithGoogle()" class="bg-blue-600 hover:bg-blue-700 text-white block w-full text-left px-3 py-2 rounded-md text-base font-medium">Sign in</button>
             }
           </div>
         </div>
